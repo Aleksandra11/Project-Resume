@@ -1,4 +1,4 @@
-var name = "Aleksa Kiri";
+var name = "Aleksandra K";
 var role = "Front-End Web Developer";
 var formettedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
@@ -12,7 +12,7 @@ var bio = {
 	"contacts" : {
 		"email" : "aleksakir1@gmail.com",
 		"github" : "Aleksandra11",
-		"location" : "Richmond"
+		"location" : "Richmond, VA"
 	},
 	"bioPic" : "images/me.jpg",
 	"message" : "Welcome to my interactive Resume",
@@ -23,9 +23,10 @@ var bioPic = bio.bioPic;
 var formattedPic = HTMLbioPic.replace("%data%", bioPic);
 $("#header").append(formattedPic);
 
-var mobile = bio.contacts.mobile;
+/*var mobile = bio.contacts.mobile;
 var formattedMobile = HTMLmobile.replace("%data%", mobile);
 $("#topContacts").append(formattedMobile);
+*/
 
 var email = bio.contacts.email;
 var formattedEmail = HTMLemail.replace("%data%", email);
@@ -63,7 +64,7 @@ var education = {
 			"name" : "Perm Institute of Technology",
 			"location" : "Perm, Russia",
 			"degree" : "BA",
-			"majors" : ["Science in Pshycology"],
+			"major" : ["Science in Pshycology"],
 			"dates" : 2011,
 			"url" : "http://example.com"
 		},
@@ -71,8 +72,8 @@ var education = {
 			"name" : "Perm State University",
 			"location" : "Perm, Russia",
 			"degree" : " ",
-			"majors" : "mathematics",
-			"year" : 2010,
+			"major" : "Mathematics",
+			"dates" : 2010,
 			"url" : "http://example.ru"
 		}
 		],
@@ -85,6 +86,25 @@ var education = {
 		}
 	]
 }
+education.display = function() {
+	for(school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+	var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+	$(".education-entry:last").append(formattedName);
+	var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+	$(".education-entry:last").append(formattedDates);
+	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+	$(".education-entry:last").append(formattedMajor);
+/*	for(onlineCourse in education.onlineCourses) {
+		$("education").append(HTMLonlineClasses);
+		var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
+		$(".education-entry:last").append(formattedTitle);
+	}
+*/
+	}
+}
+education.display();
+
 //$("#main").append(education.lastSchool);
 
 var work = {
