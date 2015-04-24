@@ -86,8 +86,13 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
+  var locations = [];
+  for (job in work.jobs) {
+    locations.push(work.jobs[job].location);
+  }
+  return locations;
 });
-
+//console.log(loc(work));
 
 
 /*

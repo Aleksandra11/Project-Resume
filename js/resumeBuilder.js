@@ -1,14 +1,6 @@
-var name = "Aleksandra K";
-var role = "Front-End Web Developer";
-var formettedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-$("#main").prepend(formattedRole);
-$("#main").prepend(formettedName);
-//var skills = ["HTML,SCC","JavaScript","teaching"];
-
 var bio = {
-	"name" : "Aleksa Kiri",
-	"role" : "Web Developer",
+	"name" : "Aleksandra Kiri",
+	"role" : "Front-End Developer",
 	"contacts" : {
 		"email" : "aleksakir1@gmail.com",
 		"github" : "Aleksandra11",
@@ -18,7 +10,13 @@ var bio = {
 	"message" : "Welcome to my interactive Resume",
 	"skills" : ["HTML","CSS","JavaScript","Teaching"]
 };
-
+var name = bio.name;
+var role = bio.role;
+var formettedName = HTMLheaderName.replace("%data%", name);
+var formattedRole = HTMLheaderRole.replace("%data%", role);
+$("#main").prepend(formattedRole);
+$("#main").prepend(formettedName);
+//var skills = ["HTML,SCC","JavaScript","teaching"];
 var bioPic = bio.bioPic;
 var formattedPic = HTMLbioPic.replace("%data%", bioPic);
 $("#header").append(formattedPic);
@@ -45,7 +43,7 @@ var formattedMessage = HTMLWelcomeMsg.replace("%data%", message);
 $("#header").append(formattedMessage);
 
 var skills = bio.skills;
-if(bio.skills.length > 0) {
+if(skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 	
 	var formattedSkill = HTMLskills.replace("%data%", skills[0]);
@@ -161,13 +159,14 @@ displayWork();
 //.append() internationalizeButton to the main div to change your name to an international version
 
 function inName(name) {
-	name = name.split(" ");
-	console.log(name);
+	var newName = name;
+	var names = name.split(" ");
 	name[1] = name[1].toUpperCase();
 	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	return name[0] +" "+name[1];
+	newName = names.join(" ");
+	return newName;
 }
-
+console.log(inName);
 $("#main").append(internationalizeButton);
 
 var projects = {

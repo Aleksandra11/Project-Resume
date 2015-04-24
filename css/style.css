@@ -212,4 +212,7 @@ span {
   .biopic {
     display: block;
   }
+  #skills {
+    float: left;
+  }
 }
