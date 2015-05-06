@@ -1,19 +1,5 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '<h4>%data%</h4><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -26,7 +12,7 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="list-item"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -49,7 +35,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<div class="online-entry"><h3>Online Classes</h3></div>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
@@ -58,10 +44,8 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
+//The International Name challenge.
 
-/*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName() || function(){};
@@ -69,9 +53,8 @@ $(document).ready(function() {
   });
 });
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
+//The next few lines about clicks are for the Collecting Click Locations.
+
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -85,27 +68,13 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
-  var locations = [];
-  for (job in work.jobs) {
-    locations.push(work.jobs[job].location);
-  }
-  return locations;
+  console.log(loc.clientX + ',' + loc.clientY);
 });
-//console.log(loc(work));
 
+// Custom Google Map for the website.
 
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
-var map;    // declares a global map variable
+var map;    
 
-
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
 function initializeMap() {
 
   var locations;
@@ -114,10 +83,9 @@ function initializeMap() {
     disableDefaultUI: true
   };
 
-  // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
+  // This line makes `map` a new Google Map JavaScript Object and attaches it to <div id="map">
+    
+    map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -144,7 +112,7 @@ function initializeMap() {
     }
 
     return locations;
-  }
+    }
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -159,31 +127,54 @@ function initializeMap() {
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
 
-    // marker is an object with additional data about the pin for a single location
+    var infoWindowContent = '<div class="content">' +
+      '<div id="siteNotice">' +
+      '</div>' +
+      '<h1 id="firstHeading" class="firstHeading">Perm</h1>' +
+      '<div id="bodyContent">' +
+      '<p><b>Perm</b> is located on the bank of the <b>Kama River</b>,  ' +
+      'in the European part of Russia near the <b>Ural Mountains</b>. ' +
+      'Perm has a continental climate with warm summers and long, cold winters. ' +
+      'Perms population is about one million people. ' +
+      'The <b>Perm Opera and Ballet House</b> is one of the best in Russia. ' +
+      'The city is a major administrative, industrial, scientific, and cultural center.</p>' +
+      '<p>Attribution: Perm, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+      'https://http://en.wikipedia.org/wiki/Perm</a></p>' +
+      '</div>' +
+      '</div>';
+/*      ['<div class="content">' +
+      '<h3>Richmond</h3>' +
+      '<p>The_______</p>' +
+      '</div>'
+      ]
+    ];
+*/
+    var infoWindow = new google.maps.InfoWindow({
+      content: infoWindowContent
+    });
+    //, marker, i;
+
+// marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
       title: name
     });
-
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
-    var infoWindow = new google.maps.InfoWindow({
-      content: name
-    });
-
-    // hmmmm, I wonder what this is about...
+//  for (i = 0; i < markers.length; i++ ) {
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
-    });
+      //return function() {
+      //  infoWindow.setContent(infoWindowContent[i][0]);
+        infoWindow.open(map,marker);
+        map.setZoom(6);
+        map.setCenter(marker.getPosition());
+      });
+    //})
+    //(marker, i);
 
-    // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
     bounds.extend(new google.maps.LatLng(lat, lon));
     // fit the map to the new marker
     map.fitBounds(bounds);
-    // center the map
     map.setCenter(bounds.getCenter());
   }
 
@@ -219,7 +210,7 @@ function initializeMap() {
       // function with the search results after each search.
       service.textSearch(request, callback);
     }
-  }
+  };
 
   // Sets the boundaries of the map based on pin locations
   window.mapBounds = new google.maps.LatLngBounds();
@@ -230,19 +221,14 @@ function initializeMap() {
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-
-}
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
-
+};
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
-
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
 window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
 });
+
+  

@@ -1,3 +1,4 @@
+@import url("http://weloveiconfonts.com/api/?family=zocial");
 * {
   padding:0;
   margin:0;
@@ -8,22 +9,66 @@
   overflow: auto;
 }
 
-.education-entry, .work-entry, .project-entry {
+.header__menu {
+  display: none;
+}
+/*
+ *
+ * Top Level Navigation
+ *
+ */
+
+.nav {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav__list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__item {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 24%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #616161;
+  margin-bottom: 10px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  color: #0C088E;
+}
+
+.education-entry, .work-entry, .project-entry, .online-entry {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
   line-height: 48px;
   display: inline;
+  padding-right: 20px;
+  font-family: 'Alegreya', serif;
+  background: linear-gradient(330deg, #e05252 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999999;
+  color: #645A5A;
   line-height: 29px;
   padding: 10px;
 }
@@ -40,6 +85,8 @@ h4 {
   font-size: 14px;
   color: #4A4A4A;
   line-height: 17px;
+  font-family: Pacifico;
+  display: inline;
 }
 
 h2, h3, h4, h5 {
@@ -63,7 +110,6 @@ h2, h3, h4, h5 {
   color: #999999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -73,7 +119,7 @@ p {
 }
 
 a {
-  color: #1199C3;
+  color: #0A35BE;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -87,7 +133,7 @@ a {
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #F5E223;
   display: none;
 }
 
@@ -111,12 +157,14 @@ a {
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #63556B;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #63556B;
+  border-top: 3px solid #15BF7A;
+  border-bottom: 3px solid #15BF7A;
 }
 
 .flex-box {
@@ -170,6 +218,48 @@ span {
   text-align: center;
 }
 
+/*
+ *
+ * Footer
+ *
+ */
+
+footer {
+  border-top: 3px solid #15BF7A;
+  padding: 1em;
+  width: 100%;
+}
+
+footer li {
+  display: block;
+  margin: 0 1em;
+}
+
+footer a {
+  text-decoration: none;
+  color: #080808;
+  padding: 1.5em;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  color: #100796;
+  display: inline-block;
+  font-family: 'zocial', sans-serif;
+  text-shadow: 3px 3px 3px #C8C2C2;
+  width: 2em;
+}
+
+#social {
+  font-family: 'Lato', sans-serif;
+  padding-left: 2em;
+  display: inline-flex;
+}
+
+#social a {
+  margin: 0 1em 0 0;
+  text-decoration: underline;
+}
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;
@@ -194,6 +284,19 @@ span {
   }
 }
 
+@media only screen and (max-width: 700px) {
+  #social {
+    padding-left: 0;
+    font-size: 12px;
+  }
+  footer {
+    border-top: none;
+  }
+  footer a {
+  padding: 0.5em;
+  }
+}
+
 #map {
   display: block;
   height: 100%;
@@ -214,5 +317,45 @@ span {
   }
   #skills {
     float: left;
+  }
+}
+@media screen and (max-width: 549px) {
+  .nav {
+    z-index: 10;
+    background-color: #fff;
+    width: 200px;
+    position: absolute;
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+  }
+  .nav.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .nav__item {
+    display: list-item;
+    border-bottom: 1px solid #E0E0E0;
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background-image: linear-gradient(135deg, 
+                      rgb(254,255,255) 0%,
+                      rgb(221,241,249) 35%,
+                      rgb(160,216,239) 100%);
+  }
+  .header__menu {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    margin-top: 0;
+    padding: 1em;
+    cursor: pointer;
+  }
+  .header__menu svg {
+    width: 32px;
+    fill: #E0E0E0;
   }
 }

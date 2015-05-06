@@ -4,11 +4,12 @@ var bio = {
 	"contacts" : {
 		"email" : "aleksakir1@gmail.com",
 		"github" : "Aleksandra11",
-		"location" : "Richmond, VA"
+		"location" : "Richmond, VA",
+		"mobile" : "804-0000000"
 	},
 	"bioPic" : "images/me.jpg",
 	"message" : "Welcome to my interactive Resume",
-	"skills" : ["HTML","CSS","JavaScript","Teaching"]
+	"skills" : ["HTML","CSS","JavaScript","Responsive Web Design", "Version Control"]
 };
 var name = bio.name;
 var role = bio.role;
@@ -16,15 +17,14 @@ var formettedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
 $("#main").prepend(formattedRole);
 $("#main").prepend(formettedName);
-//var skills = ["HTML,SCC","JavaScript","teaching"];
+
 var bioPic = bio.bioPic;
 var formattedPic = HTMLbioPic.replace("%data%", bioPic);
 $("#header").append(formattedPic);
 
-/*var mobile = bio.contacts.mobile;
+var mobile = bio.contacts.mobile;
 var formattedMobile = HTMLmobile.replace("%data%", mobile);
 $("#topContacts").append(formattedMobile);
-*/
 
 var email = bio.contacts.email;
 var formattedEmail = HTMLemail.replace("%data%", email);
@@ -59,12 +59,12 @@ if(skills.length > 0) {
 var education = {
 	"schools" : [
 		{
-			"name" : "Perm Institute of Technology",
+			"name" : "Perm Institute of Human and Technological Sciences",
 			"location" : "Perm, Russia",
 			"degree" : "BA",
-			"major" : ["Science in Pshycology"],
+			"major" : "Science in Psychology",
 			"dates" : 2011,
-			"url" : "http://example.com"
+			"url" : "http://www.pgtiperm.ru"
 		},
 		{
 			"name" : "Perm State University",
@@ -72,10 +72,16 @@ var education = {
 			"degree" : " ",
 			"major" : "Mathematics",
 			"dates" : 2010,
-			"url" : "http://example.ru"
+			"url" : "http://en.psu.ru/"
 		}
 		],
-	"onlineCourses" : [
+	"onlineClasses" : [
+		{
+			"title" : "Front-End Developer ND",
+			"school" : "Udacity",
+			"date" : 2015,
+			"url" : "http://www.udacity.com/course/ud804"
+		},
 		{
 			"title" : ["JavaScript Syntax","HTML and CSS"],
 			"school" : "Udacity",
@@ -83,7 +89,7 @@ var education = {
 			"url" : "http://www.udacity.com/course/ud804"
 		}
 	]
-}
+};
 education.display = function() {
 	for(school in education.schools) {
 		$("#education").append(HTMLschoolStart);
@@ -93,43 +99,46 @@ education.display = function() {
 	$(".education-entry:last").append(formattedDates);
 	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 	$(".education-entry:last").append(formattedMajor);
-/*	for(onlineCourse in education.onlineCourses) {
-		$("education").append(HTMLonlineClasses);
-		var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
-		$(".education-entry:last").append(formattedTitle);
-	}
-*/
+};
+	$("#education").append(HTMLonlineClasses);
+	for(onlineClass in education.onlineClasses) {
+		var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineClasses[onlineClass].title);
+		var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses[onlineClass].school);
+		var formattedTitleSchool = formattedTitle + formattedSchool;
+		$(".online-entry:last").append(formattedTitleSchool);
+		var formattedDate = HTMLonlineDates.replace("%data%", education.onlineClasses[onlineClass].date);
+		$(".online-entry:last").append(formattedDate);
+		var formattedURL = HTMLonlineURL.replace("%data%", education.onlineClasses[onlineClass].url);
+		$(".online-entry:last").append(formattedURL);
 	}
 }
 education.display();
-
-//$("#main").append(education.lastSchool);
 
 var work = {
 	"jobs" : [
 		{
 			"employer" : "Planet Express",
 			"title" : "Fron-End Web Developer",
-			"location" : "Virginia, USA",
+			"location" : "Richmond, VA",
 			"years" : "2015",
-			"description" : "___________"
+			"description" : "Responsible for interpreting and executing designs correctly."
 		},
 		{
 			"employer" : "Special School for handicapped children #4",
 			"title" : "Psychologist",
 			"location" : "Perm, Russia",
 			"years" : "2004 - 2007",
-			"description" : "_______________"
+			"description" : "Description goes here"
 		},
 		{
 			"employer" : "Center Harmony",
 			"title" : "Psychologist",
 			"location" : "Perm, Russia",
 			"years" : "2000 - 2004",
-			"description" : "______"
+			"description" : "Description goes here"
 		}
 	]
-}
+};
 function displayWork() {
 for (job in work.jobs) {$("#workExperience").append(HTMLworkStart);
 var employer = work.jobs[job].employer;
@@ -140,6 +149,8 @@ var formattedEmployerTitle = formattedworkEmployer + formattedworkTitle;
 $(".work-entry:last").append(formattedEmployerTitle);
 var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].years);
 $(".work-entry:last").append(formattedDates);
+var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
+$(".work-entry:last").append(formattedLocation);
 var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
 $(".work-entry:last").append(formattedDescription);
 }	
@@ -156,41 +167,24 @@ displayWork();
 //  logClicks(x,y);
 //});
 
-//.append() internationalizeButton to the main div to change your name to an international version
-
-function inName(name) {
-	var newName = name;
-	var names = name.split(" ");
-	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	newName = names.join(" ");
-	return newName;
-}
-console.log(inName);
-$("#main").append(internationalizeButton);
-
 var projects = {
 	"projects" : [
 	{
-		"title" : "Portfolio",
-		"dates" : 2015,
-		"description" : "bla-bla-bla",
-		"images" : [
-		"http://image.com",
-		"http://image2.com"
-		]
-	},
-	{
 		"title" : "Arcade Game",
 		"dates" : 2015,
-		"description" : "bla-bla-bla",
+		"description" : "For this project I must recreate a classic arcade game using visual assets and a game loop engine."
+	},
+	{
+		"title" : "Portfolio",
+		"dates" : 2015,
+		"description" : "Project 'Portfolio Mockup to HTML and CSS' is responsive website with descriptions and links to each of the projects",
 		"images" : [
-		"http://image3.com",
-		"http://image4.com"
+		"images/Featured_work_220.png",
+		"images/map.png"
 		]
 	}
 	]
-}
+};
 
 projects.display = function() {
 	for(project in projects.projects) {
@@ -201,18 +195,28 @@ projects.display = function() {
 	$(".project-entry:last").append(formattedDates);
 	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 	$(".project-entry:last").append(formattedDescription);
+};
 
-/*	if (projects.projects[project].images.length > 0) {
+	if (projects.projects[project].images.length > 0) {
 		for (image in projects.projects[project].images) {
-			var formattedImage = HTMLprojectImage("%data%", projects.projects[project].images[image]);
+			var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 			$(".project-entry:last").append(formattedImage);
 		}
 	}
-	*/
-	}
+
 }
 projects.display();
 
 $("#mapDiv").append(googleMap);
 
+//.append() internationalizeButton to the main div to change my name to an international version
 
+function inName() {
+	var names = bio.name.split(" ");
+	var inLastName = names[1].toUpperCase();
+	var inFirstName = names[0];
+	newName = inFirstName + ' ' + inLastName;
+	return newName;
+}
+console.log(inName);
+$("#main").append(internationalizeButton);
