@@ -120,7 +120,7 @@ var work = {
 	"jobs" : [
 		{
 			"employer" : "Planet Express",
-			"title" : "Fron-End Web Developer",
+			"title" : "Front-End Web Developer",
 			"location" : "Richmond, VA",
 			"years" : "2015",
 			"description" : "Responsible for interpreting and executing designs correctly."
