@@ -1,5 +1,5 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<h4>%data%</h4><hr/>';
+var HTMLheaderRole = '<h4 id="role">%data%</h4><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -39,7 +39,7 @@ var HTMLonlineClasses = '<div class="online-entry"><h3>Online Classes</h3></div>
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<br><a href="#" class="url">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -127,32 +127,9 @@ function initializeMap() {
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
 
-    var infoWindowContent = '<div class="content">' +
-      '<div id="siteNotice">' +
-      '</div>' +
-      '<h1 id="firstHeading" class="firstHeading">Perm</h1>' +
-      '<div id="bodyContent">' +
-      '<p><b>Perm</b> is located on the bank of the <b>Kama River</b>,  ' +
-      'in the European part of Russia near the <b>Ural Mountains</b>. ' +
-      'Perm has a continental climate with warm summers and long, cold winters. ' +
-      'Perms population is about one million people. ' +
-      'The <b>Perm Opera and Ballet House</b> is one of the best in Russia. ' +
-      'The city is a major administrative, industrial, scientific, and cultural center.</p>' +
-      '<p>Attribution: Perm, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-      'https://http://en.wikipedia.org/wiki/Perm</a></p>' +
-      '</div>' +
-      '</div>';
-/*      ['<div class="content">' +
-      '<h3>Richmond</h3>' +
-      '<p>The_______</p>' +
-      '</div>'
-      ]
-    ];
-*/
     var infoWindow = new google.maps.InfoWindow({
-      content: infoWindowContent
+      content: name
     });
-    //, marker, i;
 
 // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
@@ -160,17 +137,13 @@ function initializeMap() {
       position: placeData.geometry.location,
       title: name
     });
-//  for (i = 0; i < markers.length; i++ ) {
+
     google.maps.event.addListener(marker, 'click', function() {
-      //return function() {
-      //  infoWindow.setContent(infoWindowContent[i][0]);
         infoWindow.open(map,marker);
         map.setZoom(6);
         map.setCenter(marker.getPosition());
       });
-    //})
-    //(marker, i);
-
+    
     // bounds.extend() takes in a map location object
     bounds.extend(new google.maps.LatLng(lat, lon));
     // fit the map to the new marker
@@ -210,7 +183,7 @@ function initializeMap() {
       // function with the search results after each search.
       service.textSearch(request, callback);
     }
-  };
+  }
 
   // Sets the boundaries of the map based on pin locations
   window.mapBounds = new google.maps.LatLngBounds();
@@ -221,7 +194,7 @@ function initializeMap() {
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-};
+}
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
 // Vanilla JS way to listen for resizing of the window
@@ -230,5 +203,3 @@ window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
 });
-
-  

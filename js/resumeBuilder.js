@@ -7,7 +7,7 @@ var bio = {
 		"location" : "Richmond, VA",
 		"mobile" : "804-0000000"
 	},
-	"bioPic" : "images/me.jpg",
+	"bioPic" : "images/me_1.jpg",
 	"message" : "Welcome to my interactive Resume",
 	"skills" : ["HTML","CSS","JavaScript","Responsive Web Design", "Version Control"]
 };
@@ -15,8 +15,8 @@ var name = bio.name;
 var role = bio.role;
 var formettedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
-$("#main").prepend(formattedRole);
-$("#main").prepend(formettedName);
+$("#fixedname").prepend(formattedRole);
+$("#fixedname").prepend(formettedName);
 
 var bioPic = bio.bioPic;
 var formattedPic = HTMLbioPic.replace("%data%", bioPic);
@@ -95,6 +95,8 @@ education.display = function() {
 		$("#education").append(HTMLschoolStart);
 	var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
 	$(".education-entry:last").append(formattedName);
+	var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+	$(".education-entry:last").append(formattedLocation);
 	var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 	$(".education-entry:last").append(formattedDates);
 	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
@@ -156,16 +158,6 @@ $(".work-entry:last").append(formattedDescription);
 }	
 }
 displayWork();
-
-//collect x and y click values and pass them to the logClicks(x,y);
-//see clicks show up in the console!
-//$(document).click(function(loc) {
-  // your code goes here!
-//  var x = loc.pageX;
-//  var y = loc.pageY;
-
-//  logClicks(x,y);
-//});
 
 var projects = {
 	"projects" : [
