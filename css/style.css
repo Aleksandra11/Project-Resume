@@ -152,14 +152,14 @@ a {
 }
 
 .welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #F3F3F3;
+  font-family: Pacifico;
+  font-size: 28px;
+  color: rgb(215, 122, 0);
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5E223;
+  color: #15BF7A;
   display: none;
 }
 
@@ -183,7 +183,7 @@ a {
 }
 
 .dark-gray {
-  background-color: #63556B;
+  background-color: #4F3C5A;
 }
 
 .education-entry a {
@@ -192,7 +192,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #63556B;
+  background-color: #4F3C5A;
   border-top: 3px solid #15BF7A;
   border-bottom: 3px solid #15BF7A;
 }

@@ -126,14 +126,14 @@ var work = {
 			"description" : "Responsible for interpreting and executing designs correctly."
 		},
 		{
-			"employer" : "Special School for handicapped children #4",
-			"title" : "Psychologist",
+			"employer" : "School for children with special needs",
+			"title" : "Vice-principal",
 			"location" : "Perm, Russia",
 			"years" : "2004 - 2007",
 			"description" : "Description goes here"
 		},
 		{
-			"employer" : "Center Harmony",
+			"employer" : "Center for psychology services",
 			"title" : "Psychologist",
 			"location" : "Perm, Russia",
 			"years" : "2000 - 2004",
