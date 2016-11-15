@@ -1,4 +1,4 @@
-##Project "Interactive Resume". 
+##Project "Interactive Resume"
 
 An Interactive Resume application developed using jQuery. All resume sections are built using modular functions, resume includes a map that pulls location data from resume, menu navigation, custom CSS.
 
@@ -13,3 +13,4 @@ An Interactive Resume application developed using jQuery. All resume sections ar
 * https://css-tricks.com
 
 View live demonstration [here](http://Aleksandra11.github.io/Project_Resume/)
+
