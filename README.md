@@ -12,4 +12,5 @@ An Interactive Resume application developed using jQuery. All resume sections ar
 * http://www.csszengarden.com
 * https://css-tricks.com
 
-View live demonstration [here](http://Aleksandra11.github.io/Project_Resume/)
+
+View live demonstration [here](http://aleksandra11.github.io/Project_Resume/)
