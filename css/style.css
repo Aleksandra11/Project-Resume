@@ -63,6 +63,9 @@ body {
   color: #0C2883;
   text-decoration: underline;
   font-style: oblique;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 #name {
@@ -121,13 +124,13 @@ h2, h3, h4, h5 {
   padding-right: 5%;
 }
 
-
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #6f6d6d;
   line-height: 16px;
   float: left;
+  margin-top: 5px;
 }
 
 .location-text {
