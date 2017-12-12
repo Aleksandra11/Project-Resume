@@ -355,11 +355,15 @@ footer a {
   }
 }
 @media screen and (max-width: 549px) {
+  #name {
+    font-size: 20px;
+    position: relative;
+  }
   .nav {
     z-index: 10;
     background-color: #fff;
     width: 200px;
-    position: absolute;
+    position: fixed;
     /* This trasform moves the drawer off canvas. */
     -webkit-transform: translate(-300px, 0);
     transform: translate(-300px, 0);
@@ -383,7 +387,7 @@ footer a {
   }
   .header__menu {
     display: inline-block;
-    position: absolute;
+    position: fixed;
     right: 0;
     margin-top: 0;
     padding: 1em;
