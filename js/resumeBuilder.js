@@ -187,8 +187,7 @@ var work = {
 			"title": "Psychologist",
 			"location": "Perm, Russia",
 			"years": "2000 - 2004",
-			"description": "Provided psychological testing and comprehensive assessment, developed individual mental correction programs using computer based techniques that are shown to help children to improve their skills in learning and behavior area
-"
+			"description": "Provided testing and comprehensive assessment, developed individual mental correction programs using computer based techniques"
 		}
 	],
 	"display": function() {
