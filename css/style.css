@@ -230,7 +230,7 @@ ul {
 
 img {
   padding: 10px;
-  width: 100%;
+  /*width: 100%; */
 }
 
 /* Bar chart stuff */
@@ -355,6 +355,9 @@ footer a {
   }
 }
 @media screen and (max-width: 549px) {
+  img {
+  width: 100%;
+  }
   #name {
     font-size: 20px;
     position: absolute;
