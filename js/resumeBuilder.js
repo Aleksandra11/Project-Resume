@@ -4,12 +4,11 @@ var bio = {
 	"contacts": {
 		"email": "aleksakir1@gmail.com",
 		"github": "Aleksandra11",
-		"location": "Richmond, VA",
-		"mobile": "804-0000000"
+		"location": "Memphis, Tn"
 	},
 	"bioPic": "images/me_1.jpg",
 	"message": "Welcome to my interactive Resume",
-	"skills": ["HTML, CSS","JavaScript", "Angular", "Backbone", "Knockout", "Jasmine", "Responsive Web Design", "Version Control"],
+	"skills": ["HTML5, CSS3","JavaScript", "Jquery", "AngularJS", "Backbone", "Knockout", "Jasmine", "Responsive Web Design", "Version Control"],
 	"display": function() {
 		var formettedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -168,26 +167,27 @@ education.display();
 
 var work = {
 	"jobs": [
-		//{
-		//	"employer": "Planet Express",
-		//	"title": "Front-End Web Developer",
-		//	"location": "Richmond, VA",
-		//	"years": "2015",
-		//	"description": "Responsible for interpreting and executing designs correctly."
-		//},
 		{
-			"employer": "School for children with special needs",
-			"title": "Vice-principal",
-			"location": "Perm, Russia",
-			"years": "2004 - 2007",
-			"description": "Description goes here"
+			"employer": "Outsura",
+			"title": "Freelance Front-End Web Developer",
+			"location": "Oxford, MS",
+			"years": "2016",
+			"description": "Responsible for interpreting and executing designs correctly."
 		},
 		{
-			"employer": "Center for psychology services",
+			"employer": "School for children with special needs #4",
+			"title": "Assistant Principal",
+			"location": "Perm, Russia",
+			"years": "2004 - 2007",
+			"description": "Supervised department of correctional development, additionally elaborated a school newspaper including design and editing process."
+		},
+		{
+			"employer": "Center for psychology services 'Harmony'",
 			"title": "Psychologist",
 			"location": "Perm, Russia",
 			"years": "2000 - 2004",
-			"description": "Description goes here"
+			"description": "Provided psychological testing and comprehensive assessment, developed (author of) individual mental correction programs using computer based techniques that are shown to help children to improve their skills in learning and behavior area
+"
 		}
 	],
 	"display": function() {
