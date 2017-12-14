@@ -4,8 +4,7 @@ var bio = {
 	"contacts": {
 		"email": "aleksakir1@gmail.com",
 		"github": "Aleksandra11",
-		"location": "Memphis, Tn",
-		"mobile": "804-833-8500"
+		"location": "Memphis, Tn"
 	},
 	"bioPic": "images/me_1.jpg",
 	"message": "Welcome to my interactive Resume",
@@ -20,9 +19,9 @@ var bio = {
 		var formattedPic = HTMLbioPic.replace("%data%", bioPic);
 		$("#header").append(formattedPic);
 		
-		var mobile = bio.contacts.mobile;
-		var formattedMobile = HTMLmobile.replace("%data%", mobile);
-		$("#topContacts").append(formattedMobile);
+		//var mobile = bio.contacts.mobile;
+		//var formattedMobile = HTMLmobile.replace("%data%", mobile);
+		//$("#topContacts").append(formattedMobile);
 
 		var email = bio.contacts.email;
 		var formattedEmail = HTMLemail.replace("%data%", email);
@@ -168,15 +167,15 @@ education.display();
 
 var work = {
 	"jobs": [
-		//{
-		//	"employer": "Outsura",
-		//	"title": "Freelance Front-End Web Developer",
-		//	"location": "Oxford, MS",
-		//	"years": "2016",
-		//	"description": "Responsible for interpreting and executing designs correctly."
-		//},
 		{
-			"employer": "School for children with special needs",
+			"employer": "Outsura",
+			"title": "Freelance Front-End Web Developer",
+			"location": "Oxford, MS",
+			"years": "2016",
+			"description": "Contributor and maintainer of  WordPress website Outsura.com for startup organization designed to provide best car insurance rates. Collaborate with client to create a clean interface, goal-driven design focused on satisfying the end-user’s needs and wants. Incorporated form data validation techniques, using JavaScript and CSS"
+		},
+		{
+			"employer": "School for children with special needs #4",
 			"title": "Assistant Principal",
 			"location": "Perm, Russia",
 			"years": "2004 - 2007",
