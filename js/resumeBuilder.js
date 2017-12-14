@@ -5,6 +5,7 @@ var bio = {
 		"email": "aleksakir1@gmail.com",
 		"github": "Aleksandra11",
 		"location": "Memphis, Tn"
+		"mobile": "804-833-8500"
 	},
 	"bioPic": "images/me_1.jpg",
 	"message": "Welcome to my interactive Resume",
