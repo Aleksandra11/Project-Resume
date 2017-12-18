@@ -172,7 +172,7 @@ var work = {
 			"title": "Freelance Front-End Web Developer",
 			"location": "Oxford, MS",
 			"years": "2016",
-			"description": "Contributor and maintainer of  WordPress website Outsura.com for startup organization designed to provide best car insurance rates. Collaborate with client to create a clean interface, goal-driven design focused on satisfying the end-user’s needs and wants. Incorporated form data validation techniques, using JavaScript and CSS"
+			"description": "As a freelance I contributed in  WordPress based project (Outsura.com) for startup organization designed to provide best car insurance rates. Collaborated with client to create a clean interface, goal-driven design focused on satisfying the end-user’s needs and wants. Incorporated form data validation techniques, using JavaScript and CSS"
 		},
 		{
 			"employer": "School for children with special needs #4",
